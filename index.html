@@ -13,11 +13,13 @@
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'
 		integrity='sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=='
 		crossorigin='anonymous' />
+	<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6/dist/css/index.css" rel="stylesheet">
 	<link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 	<div id="app">
+		<loading v-model:active="isLoading"></loading>
 		<div class="container">
 			<div class="mt-4 ">
 				<!-- 產品Modal -->
@@ -114,29 +116,30 @@
 				<v-form ref="form" class="col-md-6" v-slot="{ errors }" @submit="createOrder">
 					<div class="mb-3">
 						<label for="email" class="form-label">Email</label>
-						<v-field id="email" name="email" type="email" class="form-control" 
-							:class="{ 'is-invalid': errors['email'] }" placeholder="請輸入 Email" rules="email|required" v-model="form.user.email"></v-field>
+						<v-field id="email" name="email" type="email" class="form-control"
+							:class="{ 'is-invalid': errors['email'] }" placeholder="請輸入 Email" rules="email|required"
+							v-model="form.user.email"></v-field>
 						<error-message name="email" class="invalid-feedback"></error-message>
 					</div>
 
 					<div class="mb-3">
 						<label for="name" class="form-label">收件人姓名</label>
-						<v-field id="name" name="姓名" type="text" class="form-control" :class="{ 'is-invalid': errors['姓名'] }" rules="required" v-model="form.user.name"
-							placeholder="請輸入姓名" rules="required"></v-field>
+						<v-field id="name" name="姓名" type="text" class="form-control" :class="{ 'is-invalid': errors['姓名'] }"
+							rules="required" v-model="form.user.name" placeholder="請輸入姓名" rules="required"></v-field>
 						<error-message name="姓名" class="invalid-feedback"></error-message>
 					</div>
 
 					<div class="mb-3">
 						<label for="tel" class="form-label">收件人電話</label>
-						<v-field id="tel" name="電話" type="text" class="form-control" :class="{ 'is-invalid': errors['電話'] }" rules="required|min:8|max:10" v-model="form.user.tel"
-							placeholder="請輸入電話"></v-field>
+						<v-field id="tel" name="電話" type="text" class="form-control" :class="{ 'is-invalid': errors['電話'] }"
+							rules="required|min:8|max:10" v-model="form.user.tel" placeholder="請輸入電話"></v-field>
 						<error-message name="電話" class="invalid-feedback"></error-message>
 					</div>
 
 					<div class="mb-3">
 						<label for="address" class="form-label">收件人地址</label>
-						<v-field id="address" name="地址" type="text" class="form-control" :class="{ 'is-invalid': errors['地址'] }" rules="required" v-model="form.user.address"
-							placeholder="請輸入地址" rules="required"></v-field>
+						<v-field id="address" name="地址" type="text" class="form-control" :class="{ 'is-invalid': errors['地址'] }"
+							rules="required" v-model="form.user.address" placeholder="請輸入地址" rules="required"></v-field>
 						<error-message name="地址" class="invalid-feedback"></error-message>
 					</div>
 
@@ -181,8 +184,8 @@
 					</table>
 
 				</v-form>
-				
-				
+
+
 			</div>
 		</div>
 	</div>
@@ -243,8 +246,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
 		crossorigin="anonymous"></script>
+	
 
 	<script src="https://unpkg.com/vue@next"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6"></script>
 	<script src="https://unpkg.com/vee-validate@next"></script>
 	<script src="https://unpkg.com/@vee-validate/i18n@4.1.0"></script>
 	<script src="https://unpkg.com/@vee-validate/rules"></script>
