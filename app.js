@@ -54,6 +54,7 @@ const productDetailModal = {
 		this.$refs.modal.addEventListener('hidden.bs.modal', (e) => {
 			console.log('Modal 被關閉了');
 			this.openModal(''); // 改 ID
+			this.qty = 1;
 		});
 	}
 };
@@ -115,7 +116,6 @@ const app = Vue.createApp({
 					console.log('購物車:', res.data);
 					this.cart = res.data.data;
 				})
-
 		},
 		addToCart(product_id, qty = 1) {
 			console.log(product_id, qty);
